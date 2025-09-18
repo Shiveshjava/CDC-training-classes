@@ -1,0 +1,27 @@
+package practice;
+import java.util.ArrayList;
+class practiceJava {
+	static void helper(int n ,int sum ,ArrayList<Integer> arr){
+        if(n==0) {
+        	System.out.println(sum);
+        	System.out.println(arr);
+        	return;
+        }
+        int rem =n%10;
+        sum =sum+rem;
+
+        	arr.add(sum);
+        	helper(n/10,sum,arr);
+       
+    }
+    public static void main(String[] args) {
+        
+        ArrayList<Integer>arr= new ArrayList<>();
+        int n=171511;
+        helper(n ,0 , arr);
+
+    }
+	}
+
+
+
