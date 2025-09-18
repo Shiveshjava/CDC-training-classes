@@ -1,0 +1,36 @@
+package practice;
+import java.util.ArrayList;
+class practiceJava {
+	static void helper(int n ,int sum ,ArrayList<Integer> arr ,int index){
+        if(n==0) {
+        	System.out.println(sum);
+        	System.out.println(arr);
+        	return;
+        }
+        if(index%2==0) {
+        	int rem = n%10;
+        	sum =sum+rem;
+        	arr.add(rem);
+        	helper(n/10,sum,arr,index+1);
+        }
+        else {
+        	helper(n/10,sum,arr,index+1);
+        }
+       
+    }
+    public static void main(String[] args) {
+        
+        ArrayList<Integer>arr= new ArrayList<>();
+        int n=23458;
+        helper(n ,0 , arr,1);
+
+    }
+	}
+
+Output:
+8
+[5, 3]
+
+
+
+
