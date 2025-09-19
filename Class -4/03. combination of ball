@@ -1,0 +1,24 @@
+package practice;
+import java.util.Stack;
+import java.util.ArrayList;
+
+public class practiceJava {
+    public static void main(String[] args) {
+		
+      helper(3,"") ;
+		
+		
+	}
+
+	private static void helper(int len, String ans) {
+		if(len==ans.length()) {
+			System.out.println(ans);
+			return;
+		}
+		helper(len,ans+"r");
+		helper(len,ans+"g");
+		helper(len,ans+"b");
+		// TODO Auto-generated method stub
+		
+	}
+}
