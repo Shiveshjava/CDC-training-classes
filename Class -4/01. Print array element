@@ -1,0 +1,26 @@
+package practice;
+
+
+public class practiceJava {
+    public static void main(String[] args) {
+		
+        int arr[]= {3,2,5,6,7};
+        helper(arr,0);
+    }
+
+	private static void helper(int arr[],int index) {
+		// TODO Auto-generated method stub
+		if(index==arr.length) {
+			return;
+		}
+		System.out.println(arr[index]);
+		helper(arr,index+1);
+		
+	}
+}
+OUTPUT:
+3
+2
+5
+6
+7
