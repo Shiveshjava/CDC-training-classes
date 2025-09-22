@@ -1,0 +1,26 @@
+package practice;
+
+class practiceJava {
+    public static void main(String[] args) {
+        String ar = "ABC";
+        boolean[] visited = new boolean[ar.length()]; // all false by default
+        helper(ar, visited, "");
+    }
+
+    private static void helper(String ar, boolean[] visited, String ans) {
+        // base case: if ans has length == ar.length, print it
+        if (ans.length() == ar.length()) {
+            System.out.println(ans);
+            return;
+        }
+
+        // recursive step: try each unused character
+        for (int i = 0; i < ar.length(); i++) {
+            if (!visited[i]) {
+                visited[i] = true;  // mark as used
+                helper(ar, visited, ans + ar.charAt(i));
+                visited[i] = false; // backtrack
+            }
+        }
+    }
+}
