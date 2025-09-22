@@ -1,0 +1,20 @@
+package practice;
+
+class practiceJava {
+    public static void main(String[] args) {
+        int c1 = 1;
+        int c2 = 2; // example: two choices that increase sum
+        helper(c1, c2, "", 0, 4); // last parameter = target sum
+    }
+
+    private static void helper(int c1, int c2, String ans, int sum, int target) {
+        if (sum > target) return;
+        if (sum == target) {
+            System.out.println(ans);
+            return;
+        }
+
+        helper(c1, c2, ans + c1, sum + c1, target);
+        helper(c1, c2, ans + c2, sum + c2, target);
+    }
+}
