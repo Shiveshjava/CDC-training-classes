@@ -1,0 +1,38 @@
+package practice;
+import java.util.ArrayList;
+
+class practiceJava {
+    static int count = 0; // global counter
+
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3};
+        ArrayList<ArrayList<Integer>> allSubsets = new ArrayList<>();
+
+        helper(arr, 0, new ArrayList<>(), allSubsets);
+
+        // Print all subsets
+        for (ArrayList<Integer> subset : allSubsets) {
+            System.out.println(subset);
+        }
+
+        System.out.println("Total subsets: " + count);
+    }
+
+    private static void helper(int[] arr, int i, ArrayList<Integer> current, ArrayList<ArrayList<Integer>> allSubsets) {
+        if (i == arr.length) {
+            allSubsets.add(new ArrayList<>(current)); // store a copy of current subset
+            count++;
+            return;
+        }
+
+        // Include arr[i]
+        current.add(arr[i]);
+        helper(arr, i + 1, current, allSubsets);
+
+        // Backtrack (remove last element)
+        current.remove(current.size() - 1);
+
+        // Exclude arr[i]
+        helper(arr, i + 1, current, allSubsets);
+    }
+}
